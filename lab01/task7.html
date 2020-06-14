@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function truncate(str, maxlength) {
+        return (str.length > maxlength) ?
+            str.slice(0, maxlength - 1) + '…' : str;
+    }
+
+    max = + prompt("Введите длину", '');
+    str = prompt("Введите строку", '');
+        alert(truncate(str, max));
+
+
+
+
+</script>
+</body>
+</html>

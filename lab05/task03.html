@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.onload = function(){
+        (function () {
+            info1 = {
+                a: 0,
+                b: 0,
+                count: 0,
+                correct: 0,
+                answered: false
+            };
+            document.getElementById('buttonNext1').onclick = next;
+            init();
+            function check(event) {
+                let answer = parseInt(event.currentTarget.children[0].value);
+                if (info1.answered)
+                    return;
+                event.currentTarget.children[0].setAttribute('checked', 'checked');
+                let labels = document.getElementById('answers').children;
+                for (var i = 0; i < labels.length; i++) {
+                    labels[i].children[0].setAttribute('disabled', 'disabled');
+                }
+                info1.answered = true;
+                if (info1.a * info1.b == answer) {
+                    document.getElementById('resultText1').innerHTML = 'Відповідь правильна.';
+                    info1.correct++;
+                } else {
+                    document.getElementById('resultText1').innerHTML = 'Помилка, правильна відповідь: ' + info1.a * info1.b;
+                }
+            }
+            function next() {
+                info1.count++;
+                document.getElementById('score1').innerHTML = "Загальний рахунок " + Math.floor(info1.correct * 100 / info1.count) + '% (' + info1.correct + ' правильних відповідей з ' + info1.count + ')';
+                info1.answered = false;
+                document.getElementById('resultText1').innerHTML = '';
+                document.getElementById('answers').innerHTML = '';
+                init();
+            }
+            function init() {
+                info1.a = Math.floor(1 + Math.random() * (9 + 1 - 1));
+                info1.b = Math.floor(1 + Math.random() * (9 + 1 - 1));
+                document.getElementById('expression1').innerHTML = info1.a + ' x ' + info1.b;
+                let numbers = [
+                    info1.a * info1.b,
+                    Math.floor(1 + Math.random() * (81 + 1 - 1)),
+                    Math.floor(1 + Math.random() * (81 + 1 - 1)),
+                    Math.floor(1 + Math.random() * (81 + 1 - 1))
+                ];
+                numbers.sort(function (a, b) {
+                    return a - b;
+                });
+                for (let i = 0; i < numbers.length; i++) {
+                    let label = document.createElement('label');
+                    let answer = document.createElement('input');
+                    answer.setAttribute('name', 'answer');
+                    answer.setAttribute('type', 'radio');
+                    answer.value = numbers[i];
+                    label.appendChild(answer);
+                    label.innerHTML += numbers[i].toString() + '<br>';
+                    label.onclick = check;
+                    document.getElementById('answers').appendChild(label);
+                }}}
+                )()}
+</script>
+<div>
+<span id="score1">Загальний рахунок</span><br/>
+<button id="buttonNext1">Наступне завдання</button><br />
+<span id="expression1"></span><br />
+<div id="answers"></div>
+<p id="resultText1"></p>
+</div>
+
+
+</body>
+</html>

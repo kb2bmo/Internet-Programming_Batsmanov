@@ -1,0 +1,19 @@
+body{
+    font-family: Roboto, sans-serif;
+    color: black;
+    text-align: center;
+    height: 88vh;
+ }
+#primeContainer {
+    background-color: #CBCFD1;
+    border: solid 1px black;
+    font-family: Arial,sans-serif;
+    font-size: 11px;
+    height: 300px;
+    width: 420px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 20px;
+    margin-left: 37%;
+    margin-bottom: 10px;
+    padding: 3px; }

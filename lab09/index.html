@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form class="order">
+    <span>Параметри бургера</span>
+    <div class="param">
+        <div class="size">
+            <span>Розмір: </span>
+            <select id = size>
+                <option value="big">Великий</option>
+                <option value="small">Маленький</option>
+            </select>
+        </div>
+        <div class="stuffing">
+            <span>Начинка: </span>
+            <select id = "stuffing">
+                <option value="potato">Картофель</option>
+                <option value="salad">Салат</option>
+                <option value="cheese">Сир</option>
+            </select>
+        </div>
+        <div class="topping">
+            <div>
+                <input type="checkbox" id = "MAYO">
+                <label for = "MAYO">Додати майонез</label>
+            </div>
+            <div>
+            <input type="checkbox" id = "SPICE">
+            <label for="SPICE">Посипати приправою</label>
+        </div>
+        </div>
+        <div class="description">
+            <span id = "price">Вартість: 0</span>
+            <span id = "calories">Калорії: 0</span>
+        </div>
+        <div class="buttons">
+            <button id = "submit">Замовити</button>
+            <button type="reset" id = "reset">Скинути</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="Class-burger.js"></script>
+<script type="text/javascript" src="js.js"></script>
+</body>
+</html>

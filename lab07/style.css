@@ -1,0 +1,10 @@
+.content {
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+}
+canvas {
+    margin: 15px 0;
+    background: silver;
+    border:  1px solid black;
+}

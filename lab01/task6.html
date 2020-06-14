@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkSpam(str) {
+        let lowerStr = str.toLowerCase();
+        return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+    }
+    do {
+        str = prompt("Введите текст для проверки (пропишите 'выход' для выхода)", '');
+        if (str != 'выход'){
+        alert(checkSpam(str));}
+        else break;
+    }while (str=!0)
+
+</script>
+
+</body>
+</html>

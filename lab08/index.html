@@ -1,0 +1,16 @@
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<p>Задайте диапазон чисел от
+    <input type="number" id="fromValue" value="1"> до
+    <input type="number" id="toValue" value="10000" max="900000">.
+</p> <button id="searchBtn" onclick="doSearch()">Запустить поиск</button>
+<button onClick="cancelSearch()">Остановить поиск</button>
+<div id="primeContainer"></div> <div id="status"></div>
+<div id="userCoords"></div>
+</body> <script src="API.js"></script>
+</html>

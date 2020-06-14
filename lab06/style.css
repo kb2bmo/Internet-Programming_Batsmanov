@@ -1,0 +1,31 @@
+.input {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.data {
+    max-width: 325px;
+    margin: 0 auto;
+    text-align: center;
+}
+.field {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+.field td {
+    border: 1px solid black;
+    background: lightskyblue;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.field .open {
+    background: white;
+}
+.field .bomb {
+    background: red;
+    background-size: cover;
+}
+.field td:hover {
+    background: blueviolet;
+}

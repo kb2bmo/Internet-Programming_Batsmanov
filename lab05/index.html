@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab5</title>
+    <script src="js.js"></script>
+</head>
+<style>
+    input {
+        margin: 5px;
+    }
+    .task {
+        color: #920ce2;
+    }
+</style>
+<body>
+<div>
+    <p class="task">Завдання №1</p>
+    <table>
+        <tr>
+            <td> Температура за Фаренгейтом </td>
+            <td>
+                <input type="text" id="Far" onkeyup="temp()" />
+            </td>
+        </tr>
+        <tr>
+            <td> Температура за Цельсієм </td>
+            <td>
+                <input type="text" id="Cel" onkeyup="temp()" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <p class="task">Завдання №2</p>
+    <span id="score">Загальний рахунок</span><br/>
+    <button id="buttonNext">Наступне завдання</button><br />
+    <span id="expression" ></span>
+    <input type="text" id="answer"/>
+    <button id="buttonCheck">Перевірка</button>
+    <p id="resultText"></p>
+</div>
+<div>
+    <p class="task">Завдання №3</p>
+    <span id="score1">Загальний рахунок</span><br/>
+    <button id="buttonNext1">Наступне завдання</button><br />
+    <span id="expression1"></span><br />
+    <div id="answers"></div>
+    <p id="resultText1"></p>
+</div>
+<div>
+    <p class="task">Завдання №4</p>
+    <div id="rotator"></div>
+
+</div>
+<div>
+    <p class="task">Завдання №5</p>
+    <label for="countCaptcha">Кількість цифр:
+        <input type="text" id="countCaptcha" />
+        <button id="buttonCaptcha">Згенерувати</button>
+    </label><br />
+    <div id="captcha"></div>
+</div>
+
+</body>
+</html>

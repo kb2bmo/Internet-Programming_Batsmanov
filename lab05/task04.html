@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 4</title>
+</head>
+<body>
+<div id="rotator"></div>
+</body>
+<script>
+    let imagesArray = [
+        {
+            path: 'Volk.jpg',
+            title: 'Вовк',
+            description: 'Небезпечний' },{
+            path: '1445098219156129313.jpg',
+            title: 'Продам гараж',
+            description: 'Дорого' },{
+            path: 'cf06cae5552af52b99b593efd8d6fb3c.jpg',
+            title: 'ЖДТУ',
+            description: 'Аудиторія для громадян Азербайджану' } ];
+    initPhotoRotator('rotator', imagesArray);
+    function initPhotoRotator(elem, imagesArray) {
+        let slider_body = document.getElementById(elem),
+            prev_btn_box = document.createElement('div'),
+            next_btn_box = document.createElement('div'),
+            content_box = document.createElement('div'),
+            prev_btn = document.createElement('a'),
+            next_btn = document.createElement('a'),
+            slider_h = document.createElement('div'),
+            container = document.createElement('div'),
+            footer = document.createElement('div'),
+            title = document.createElement('div'),
+            desc = document.createElement('div'),
+            img = document.createElement('img'),
+            index = 0;
+//Стили
+        slider_body.style.width = '700px';
+        slider_body.style.margin = '0 auto';
+        slider_body.style.display = 'flex';
+        slider_body.style.alignItems = 'center';
+        slider_body.style.justifyContent = 'space-around';
+        slider_body.style.border = '1px solid black';
+        prev_btn.innerHTML = 'Назад';
+        prev_btn.style.cursor = 'pointer';
+        next_btn.innerHTML = 'Вперед';
+        next_btn.style.cursor = 'pointer';
+        prev_btn.className = 'slider_body-left';
+        next_btn.className = 'slider_body-right';
+        prev_btn_box.className = 'slider_body-left-wrapper';
+        next_btn_box.className = 'slider_body-right-wrapper';
+        prev_btn_box.appendChild(prev_btn);
+        next_btn_box.appendChild(next_btn);
+        content_box.className = 'content-wrapper';
+        content_box.style.borderRight = '1px solid black';
+        content_box.style.borderLeft = '1px solid black';
+        slider_h.className = 'slider_body-counter';
+        slider_h.style.padding = '5px 0';
+        slider_h.style.borderBottom = '1px solid black';
+        slider_h.style.textAlign = 'center';
+        container.className = 'slider_body-image-wrapper';
+        container.style.padding = '0 20px';
+        container.style.width = '500px';
+        container.style.height = '500px';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        footer.className = 'slider_body-footer';
+        footer.style.padding = '5px 0';
+        footer.style.borderTop = '1px solid lightgrey';
+        footer.style.textAlign = 'center';
+        img.className = 'slider_body-image';
+        img.style.maxHeight = '500px';
+        img.style.maxWidth = '500px';
+        img.style.color = 'red';
+        title.className = 'slider_body-title';
+        title.style.fontWeight = 'bold';
+        desc.className = 'slider_body-desc';
+//
+        footer.appendChild(title);
+        footer.appendChild(desc);
+        container.appendChild(img);
+        content_box.appendChild(slider_h);
+        content_box.appendChild(container);
+        content_box.appendChild(footer);
+        slider_body.appendChild(prev_btn_box);
+        slider_body.appendChild(content_box);
+        slider_body.appendChild(next_btn_box);
+        prev_btn.onclick = left;
+        next_btn.onclick = right;
+        slide(0);
+        function slide(i) {
+            if (i < 0 || i >= imagesArray.length)
+                return;
+            index = i;
+            if (index == 0) {
+                prev_btn.style.opacity = '.3';
+                next_btn.style.opacity = '1';
+            } else if (index == imagesArray.length - 1) {
+                next_btn.style.opacity = '.3';
+                prev_btn.style.opacity = '1';
+            } else {
+                prev_btn.style.opacity = '1';
+                next_btn.style.opacity = '1'; }
+            img.src = imagesArray[index].path;
+            slider_h.innerHTML = 'Фотографія ' + (index + 1) + ' з ' + imagesArray.length;
+            title.innerHTML = imagesArray[index].title;
+            desc.innerHTML = imagesArray[index].description; }
+        function left() {
+            slide(index - 1); }
+        function right() {
+            slide(index + 1); } }
+</script>
+</html>

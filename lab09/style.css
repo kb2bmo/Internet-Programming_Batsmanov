@@ -1,0 +1,42 @@
+body {
+    font-size: 16px;
+}
+.order {
+    max-width: 230px;
+    margin: 0 auto;
+    border: 2px solid black;
+    padding: 20px 200px 15px;
+}
+.order > span {
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.size {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.stuffing {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.topping {
+    margin: 5px 0;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0;
+}
+.description {
+    display: flex;
+    justify-content: space-around;
+    color: orangered;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+}

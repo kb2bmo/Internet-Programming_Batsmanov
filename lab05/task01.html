@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1</title>
+</head>
+<body>
+<div class="task1">
+    <label> Цельсій:
+        <input type="text" id="val1" oninput="gradTemperatuteToFar()" style="marginbottom: 3px; margin-left: 19px"><br><br>
+    </label>
+    <label> Фаренгейт:
+        <input type="text" id="val2" oninput="gradTemperatuteToCel()">
+    </label>
+</div>
+<script>
+    function gradTemperatuteToFar() {
+        let cel = +document.querySelector("#val1").value;
+        let res = Math.round(cel * (9 / 5) + 32);
+        let text = document.querySelector("#val2");
+        text.value = res; }
+    function gradTemperatuteToCel() {
+        let far = +document.querySelector("#val2").value;
+        let res = Math.round(far - 32 * (5 / 9));
+        let text = document.querySelector("#val1");
+        text.value = res; }
+</script>
+</body>
+</html>

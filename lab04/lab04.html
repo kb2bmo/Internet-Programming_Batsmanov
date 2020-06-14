@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lab04.js"></script>
+</head>
+<body>
+<table border="solid black">
+    <tr>
+        <th>Завдання</th>
+        <th>Виконати</th>
+        <th>Результат</th>
+    </tr>
+    <tr>
+        <td>Завдання 1. Написати функцію, яка виводить поточну дату.</td>
+        <td><input type="button" onclick="nowdate()" value="Запуск"></td>
+        <td width="400px" id="task 1"></td>
+    </tr>
+    <tr>
+        <td>Завдання 2. Написати функцію, яка приймає об’єкт Date і повертає інформацію про день тижня у вигляді об’єкта, що має поля.</td>
+        <td><input type="button" onclick=" weekdate()" value="Запуск"></td>
+        <td width="400px" id="task 2"></td>
+    </tr>
+    <tr>
+        <td>Завдання 3. Знайти дату, яка була N днів назад.</td>
+
+        <td><input type="text" id="text 3"><br>
+            <input type="button" onclick=" prevdate()" value="Запуск"></td>
+        <td width="400px" id="task 3"></td>
+
+    </tr>
+    <tr>
+    <td>Завдання 4. Напишіть функцію, яка за заданим роком та номером місяця визначає останній день місяця</td>
+    <td><input type="month" id="text 4"><br>
+        <input type="button" onclick=" lastday()" value="Запуск"></td>
+    <td width="400px" id="task 4"></td>
+    </tr>
+    <td>Завдання 5. Реалізуйте функцію, яка повертає об’єкт з двома полями:<br>
+
+        - кількість секунд, яка пройшла від початку сьогоднішнього дня;<br>
+
+        - кількість секунд до початку наступного дня. </td>
+    <td><input type="button" onclick=" seconds()" value="Запуск"></td>
+    <td width="400px" id="task 5"></td>
+    </tr>
+    <tr>
+        <td>Завдання 6. Реалізуйте виведення заданої дати у вигляді рядка форматі ДД.ММ.РРРР.</td>
+        <td><input type="date" id="text 6"><br>
+            <input type="button" onclick=" dateString()" value="Запуск"></td>
+        <td width="400px" id="task 6"></td>
+    </tr>
+    <tr>
+        <td>Завдання 7. Напишіть функцію пошуку різниці між двома датами.</td>
+        <td><input type="date" id="text 7.1"><br>
+            <input type="date" id="text 7.2"><br>
+            <input type="button" onclick=" dateSubstraction()" value="Запуск"></td>
+        <td width="400px" id="task 7"></td>
+    </tr>
+    <tr>
+        <td>Завдання 8. Напишіть функцію formatDate(date), яка форматує дату date.</td>
+        <td><input type="datetime-local" id="text 8"><br>
+            <input type="button" onclick=" formatDate()" value="Запуск"></td>
+        <td width="400px" id="task-8"></td>
+    </tr>
+    <tr>
+        <td>Завдання 9. Напишіть функцію, яка за введеним користувачем рядом формує об’єкт date. Передбачте кілька форматів представлення дати і напишіть інформацію про підтримувані формати на сторінці.</td>
+        <td>
+            <input id="text 9" value="22.01.2001">
+            <input type="button" onclick=" dateAnotherFormats()" value="Запуск"></td>
+        <td width="400px" id="task 9"></td>
+    </tr>
+    <tr>
+        <td>Завдання 10. Реалізуйте виведення дати на вказаній мові</td>
+        <td>
+        <input type="button"  onclick=" showdateua()" value="UA">
+        <input type="button"  onclick=" showdateru()" value="RU">
+            <input type="button"  onclick=" showdateuk()" value="UK"></td>
+        <td width="400px" id="task 10"></td>
+    </tr>
+</table>
+</body>
+</html>

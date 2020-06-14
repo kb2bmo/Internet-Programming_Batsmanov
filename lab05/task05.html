@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5</title>
+</head>
+<body>
+<label>Складність:
+    <input type="range" min="3" max="7" id="captcha_hard" />
+    <button id="gen_btn">Згенерувати</button>
+</label><br>
+<div id="captcha"></div>
+</body>
+<script>
+    document.getElementById('gen_btn').onclick = initCaptcha;
+    function initCaptcha() {
+        let captcha = document.getElementById('captcha'),
+            view_cnv = document.createElement('div'),
+            input_box = document.createElement('div'),
+            check_box = document.createElement('div'),
+            input = document.createElement('input'),
+            nums = [],
+            counter = document.getElementById('captcha_hard').value;
+        captcha.innerHTML = '';
+        captcha.style.display = 'inline-block';
+        captcha.style.marginTop= "3px";
+        input_box.appendChild(input);
+        captcha.appendChild(view_cnv);
+        captcha.appendChild(input_box);
+        captcha.appendChild(check_box);
+        view_cnv.style.display = 'inline-block';
+        view_cnv.style.minWidth = '200px';
+        view_cnv.style.border = '2px solid lightgrey';
+        input.style.minWidth = '200px';
+        check_box.style.textAlign = 'center';
+        let pix_nums = {
+            0: [
+                [1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]],
+            1: [
+            [1, 1], [0, 1], [0, 1], [0, 1], [0, 1] ],2: [
+            [1, 1, 1], [0, 0, 1], [1, 1, 1], [1, 0, 0], [1, 1, 1] ],3: [
+            [1, 1, 1], [0, 0, 1], [0, 1, 0], [0, 0, 1], [1, 1, 1] ],4: [
+            [1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1] ],5: [
+            [1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1] ],6: [
+            [1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 1], [1, 1, 1] ],7: [
+            [1, 1, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0] ],8: [
+            [1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 1, 1] ],9: [
+            [1, 1, 1], [1, 0, 1], [1, 1, 1],
+            [0, 0, 1], [1, 1, 1] ],
+        space: [
+            [0], [0], [0], [0], [0] ] };
+        init();
+        input.onkeyup = check;
+        function init() {
+            let pix = [];
+            for (let i = 0; i < counter; i++) {
+                let number = Math.floor(Math.random() * (9 + 1 - 1));
+                nums.push(number);
+                pix.push(pix_nums[number]);
+                if (i != counter - 1) {
+                    pix.push(pix_nums.space); } }
+            draw(pix); }
+        function draw(pix) {
+            for (let i = 0; i < 5; i++) {
+                let row = document.createElement('div');
+                row.style.height = '5px';
+                row.style.position = 'relative';
+                row.style.top = '-9px';
+                for (let j = 0; j < pix.length; j++) {
+                    for (let l = 0; l < pix[j][i].length; l++) {
+                        let el = document.createElement('span');
+                        el.style.display = 'inline-block';
+                        el.style.width = '5px';
+                        el.style.height = '5px';
+                        if (pix[j][i][l] == 1) {
+                            el.style.background = 'red'; }
+                        row.appendChild(el); } }
+                view_cnv.appendChild(row); } }
+        function check() {
+            let result = input.value.trim().split('');
+            if (result.length != nums.length) {
+                check_box.innerHTML = 'Невірно, спробуйте ще раз!';
+                check_box.style.color = 'red';
+            } else {
+                for (let i = 0; i < result.length; i++) {
+                    if (result[i] != nums[i]) {
+                        check_box.innerHTML = 'Невірно, спробуйте ще раз!';
+                        check_box.style.color = 'red';
+                        return;
+                    } }
+                check_box.innerHTML = 'Пройдено!';
+                check_box.style.color = 'green'; } } }
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isIPAddress(ip) {
+        let regex = RegExp("[0-255].[0-255].[0-255].[0-255]")
+        if(ip.match(regex)){
+            alert(true);
+        }
+        else alert(false);
+
+    }
+    function findRGBA(text) {
+            let text_rgba = text.match(/rgba[(](?:\s*0*(?:\d\d?(?:\.\d+)?(?:\s*%)?|\.\d+\s*%|100(?:\.0*)?\s*%|(?:1\d\d |2[0-4]\d|25[0-5])(?:\.\d+)?)\s*,){3}\s*0*(?:\.\d+|1(?:\.0*)?)\s*[)]/);
+   alert(text_rgba);
+    }
+    function findHexColor(text) {
+        let text_hex = text.match(/#[0-9A-F]{6}|#[0-9A-F]{3,6}/);
+        alert(text_hex);
+        
+    }
+    function findTags(text, tag) {
+        text = prompt("Введите текст, который содержит теги HTML:"," " );
+        tag = prompt("Введите тег, который нужно найти:", "");
+        let regexp = new RegExp(`<${tag}>`, `\g`);
+        alert(text.match(regexp));
+    }
+    function findPosNum(text) {
+            let regexp = new RegExp(`(?<![-\\d])(?<!\\d[.,])\\d*[0-9](?![.,]?\\d)`, `\g`);
+            let res = text.match(regexp);
+            alert(res);
+        
+    }
+    function findDates(text){
+        let regexp = RegExp(`[0-2020].[1-12].[1-31]`, `\g`)
+        let result = text.matchAll(regexp);
+        result = Array.from(result);
+        let firstMatch = result[0];
+        alert( firstMatch[0] );
+        alert( firstMatch[1] );
+        alert( firstMatch.index );
+        alert( firstMatch.input );
+         // alert( result[0]);
+         // alert( result.length);
+     // let result = text.match(/[0-2020].[1-12].[1-31]/g);
+     //   while (i<= result.length){
+     //       alert(result[i]);
+     //       i++;
+     //   }
+
+    }
+ip = prompt("Введите Ip v4"," ");
+    isIPAddress(ip);
+    rgba= prompt("Введите текст, который содержит RGBA:", "Черный:rgba(251,52,172,0.3)");
+    findRGBA(rgba)
+hex = prompt("Введите текст, который содержит цвет в HEX:" , " #21ABCE");
+findHexColor(hex);
+findTags();
+postext = prompt("Введите текст");
+findPosNum(postext);
+    datetext = prompt("Введите текст"," ");
+findDates(datetext)
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="task_num"></div>
+<div id="score"></div>
+<button type="button" id="next-btn"></button>
+<br>
+<span id="task"></span>
+<input id="answer">
+<button id="check-btn"></button>
+<div id="check"></div>
+</body>
+<script>
+    let score = document.getElementById("score");
+    let task = document.getElementById("task");
+    let next = document.querySelector("#next-btn");
+    let answer;
+    let res_text = document.getElementById("check");
+    let check_btn = document.getElementById("check-btn");
+    let task_num = document.getElementById("task_num");
+    let count = 0;
+    let rightAns_count = 0;
+    let a;
+    let b;
+    next.innerHTML = "Почати";
+    check_btn.innerHTML = "Перевірити";
+    function getRandomInt(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min; }
+    function mul_next() {
+        next.innerHTML = "Наступне завдання";
+        a = getRandomInt(1, 10);
+        b = getRandomInt(1, 10);
+        task.innerHTML = a + ' * ' + b + " =";
+        count++;
+        score.innerHTML = 'Загальний рахунок: ' + rightAns_count * 10 + '% (' +
+            rightAns_count + ' правильних відповідей з 10)';
+        check_btn.disabled = false;
+        res_text.innerHTML = "";
+        task_num.innerHTML = `Завдання №${count}`;
+        if(count === 10){
+            next.innerHTML = "Закінчити";
+        } else if (count === 11){
+            check_btn.disabled = true;
+            next.disabled = true;
+            task_num.innerHTML = `Завершено!`;
+            task.innerHTML = "";
+            let answer_inp = document.querySelector("#answer");
+            answer_inp.setAttribute("disabled", "true"); } }
+    function mul() {
+        return a * b; }
+    function checking() {
+        answer = +document.getElementById("answer").value;
+        if (mul() == answer) {
+            res_text.innerHTML = "Правильно!";
+            res_text.style.color = "green";
+            rightAns_count++;
+            check_btn.disabled = true;
+        } else {
+            res_text.innerHTML = "Помилка, правильна відповідь: " + mul();
+            res_text.style.color = "red";
+            check_btn.disabled = true;
+        } }
+    next.addEventListener('click', mul_next);
+    check_btn.addEventListener('click', checking);
+</script>
+</html>
